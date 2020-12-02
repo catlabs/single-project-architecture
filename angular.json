@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -62,6 +63,22 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "econsilium": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.econsilium.ts"
+                }
+              ]
+            },
+            "presidency": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.presidency.ts"
+                }
+              ]
             }
           }
         },
@@ -73,6 +90,12 @@
           "configurations": {
             "production": {
               "browserTarget": "single-project-architecture:build:production"
+            },
+            "econsilium": {
+              "browserTarget": "single-project-architecture:build:econsilium"
+            },
+            "presidency": {
+              "browserTarget": "single-project-architecture:build:presidency"
             }
           }
         },
@@ -94,6 +117,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -125,7 +149,130 @@
           }
         }
       }
+    },
+    "first-feature": {
+      "projectType": "library",
+      "root": "projects/first-feature",
+      "sourceRoot": "projects/first-feature/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/first-feature/tsconfig.lib.json",
+            "project": "projects/first-feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/first-feature/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/first-feature/src/test.ts",
+            "tsConfig": "projects/first-feature/tsconfig.spec.json",
+            "karmaConfig": "projects/first-feature/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/first-feature/tsconfig.lib.json",
+              "projects/first-feature/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "second-feature": {
+      "projectType": "library",
+      "root": "projects/second-feature",
+      "sourceRoot": "projects/second-feature/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/second-feature/tsconfig.lib.json",
+            "project": "projects/second-feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/second-feature/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/second-feature/src/test.ts",
+            "tsConfig": "projects/second-feature/tsconfig.spec.json",
+            "karmaConfig": "projects/second-feature/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/second-feature/tsconfig.lib.json",
+              "projects/second-feature/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "third-feature": {
+      "projectType": "library",
+      "root": "projects/third-feature",
+      "sourceRoot": "projects/third-feature/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/third-feature/tsconfig.lib.json",
+            "project": "projects/third-feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/third-feature/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/third-feature/src/test.ts",
+            "tsConfig": "projects/third-feature/tsconfig.spec.json",
+            "karmaConfig": "projects/third-feature/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/third-feature/tsconfig.lib.json",
+              "projects/third-feature/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "single-project-architecture"
+  "defaultProject": "single-project-architecture",
+  "cli": {
+    "analytics": "c81db39b-0ff2-4c4b-bbd6-f0e207a220fe"
+  }
 }

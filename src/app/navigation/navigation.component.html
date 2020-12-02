@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a *ngIf="enabledFeatures.firstFeature"  mat-list-item [routerLink]="['/first-feature']">First feature</a>
+      <a *ngIf="enabledFeatures.secondFeature" mat-list-item [routerLink]="['/second-feature']">Second feature</a>
+      <a *ngIf="enabledFeatures.thirdFeature" mat-list-item [routerLink]="['/third-feature']">Third feature</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div>
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>{{ client }}</span>
+      </div>
+      <div *ngIf="client === 'econsilium'">User menu for econsilium</div>
+    </mat-toolbar>
+    <div class="main">
+      <ng-content></ng-content>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
